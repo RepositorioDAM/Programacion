@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Programación - DAM</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #ddd;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+        }
+        nav a {
+            position: relative;
+            margin: 0 50px;
+            text-decoration: none;
+            color: #333;
+            overflow: hidden;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: #333;
+            transition: all 0.3s;
+        }
+        nav a:hover::after {
+            left: 0;
+            width: 100%;
+        }
+        section {
+            float: left;
+            width: 70%;
+            padding: 20px;
+        }
+        aside {
+            float: right;
+            width: 30%;
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            clear: both;
+        }
+        article {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        article h2 {
+            margin-top: 0;
+        }
+        .article-container {
+            display: flex;
+            width: 140%; /* Ajusta el ancho del contenedor al 90% de la pantalla */
+            margin: 0 auto;
+        }
+        .article-container img {
+            flex: 30%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.1);
+        }
+        .article-container article {
+            flex: 70%;
+        }
+        .typewriter h1 {
+            overflow: hidden;
+            border-right: .15em solid orange;
+            white-space: nowrap; 
+            margin: 0 auto;            
+            animation: 
+                typing 3.5s steps(40, end),
+                blink-caret .75s step-end infinite;
+        }
+        
+        .img-programacion {
+            width: 9%;
+            margin: 10px;            
+            margin-top: -78px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.2);
+            float: right;
+            clear:both;
+        }
+
+        .button {
+            display: inline-block;
+             width: 150px; 
+            height: 40px; 
+            margin: 20px auto;
+            background-color: #333; 
+            text-align: center;
+            border-radius: 10px;
+            color: white;            
+            line-height: 40px; 
+            text-decoration: none;
+        }       
+
+        a {
+            text-decoration: none; /* Elimina el subrayado de los enlaces */
+            color: #333;
+        }
+       
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+
+        /* Estilos para la lista desplegable */
+        select {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.1);
+            outline: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        select:hover {
+            background-color: #ddd;
+        }
+
+        /* Estilos para el contenedor del código */
+        #codeContainer {
+            font-family: 'Courier New', monospace;
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.1);
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+    <script>
+        // Función para mostrar el código
+        function showJavaCode() {
+        var select = document.getElementById("javaFiles");
+        var selectedFile = select.options[select.selectedIndex].value;
+        var codeContainer = document.getElementById("codeContainer");
+
+        if (selectedFile) {
+            fetch(`https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/master/${selectedFile}`)
+            .then(response => response.text())
+            .then(data => {
+                codeContainer.innerText = data;
+            });
+        } else {
+            codeContainer.innerText = 'Selecciona tu código y obsérvalo aquí';
+        }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1 id="top">Programación</h1>
+        <img class="img-programacion" src="java.jpg" alt="Logo java">
+    </header>
+    <nav>
+        <a href="#top">Inicio</a>
+        <a href="#contenidos">Contenidos del Curso</a>
+        <a href="#practicas">Mis Prácticas</a>
+    </nav>   
+    <section>
+        <h2>Desarrollo de Aplicaciones Multiplataforma - Primer Curso</h2>        
+        <p>En esta asignatura estamos aprendiendo el lenguaje de programación Java. Los contenidos de la asignatura se basan en:</p>
+        <h2 id="contenidos">Contenidos del Curso</h2>
+        <ul>
+            <li>Programacion de minijuegos con Scratch</li>
+            <li>Fundamentos de la programación</li>
+            <li>Diagramas de flujo</li>
+            <li>Estructuras repetitivas : For, While, Do...While</li>
+            <li>Introducción a Java</li>
+            <li>Condicionales y elementos auxiliares</li> 
+            <li>Casting y Math.random()</li>        
+            <li>Arrays</li>   
+            <li>Clase String</li> 
+            <li>Bucles anidados</li> 
+            <li>Arrays Multidimensionales (Matrices)</li> 
+        </ul>
+        <br>
+        <h2 id="practicas">Mis Prácticas</h2>
+        <p>Aquí voy a presentar algunas de mis prácticas Java para que podais ver el código.</p>
+        <p>Seleccionalo en la lista:</p>
+
+        <select id="javaFiles" onchange="showJavaCode()">
+            <option value="volumenesfera.java">Volumen de la esfera</option>
+            <option value="SerieFibonacci.java">Serie de Fibonacci</option>
+            <option value="Expresions6.java">Expresiones</option>
+            <option value="Exercici15Bucles.java">Ejercicio de Bucles</option>
+            <option value="Exercici16Bucles.java">Ejercicio de Bucles 2</option>
+            <option value="Exercici17Bucles.java">Ejercicio de Bucles 3</option>
+            <option value="Expresions17Condi.java">Ejercicio de Condicionales</option>
+            <option value="Expresions18Condi.java">Ejercicio de Condicionales 2</option>            
+            <option value="Menu">Proyecto Menu de opciones</option>
+            <option value="JuegoStarWars.java">Juego Conversacional STAR WARS</option>
+            <option value="Arrays15.java">Ejercicio de Arrays</option>
+            <option value="Arrays16">Ejercicio de Arrays 2</option>
+            <option value="Arrays17.java">Ejercicio de Arrays 3</option>
+            <option value="EjerciciosString4.java">Ejercicio de String</option>
+            <option value="CifradoCesar3.java">Cifrado Cesar</option>
+            <option value="Matrices4.java">Ejercicios de Matrices</option>
+            <option value="Matrices5.java">Ejercicio de Matrices 2</option>
+            <option value="MatrizcuadradaEntrega.java">Matriz Cuadrada</option>
+            <option value="Multidimensional.java">Array Multidimensional</option>         
+            
+           
+            <!-- Añade más opciones según sea necesario -->
+        </select>
+          
+          <!-- Contenedor para el código -->
+        <div id="codeContainer">Selecciona el código que quieras y obsérvalo aquí.</div> 
+
+        <p>Aquí voy a presentar algunas de mis prácticas y proyectos.</p>
+
+        <ul>
+            <li><a href="Actividades_relaciones.pdf" target="_blank">Práctica 1: EJERCICIOS DE ENTIDAD RELACIÓN</a></li>
+            <li><a href="Ejercicios ER REPASO.pdf" target="_blank">Práctica 2: EJERCICIOS ENTIDAD RELACION 2</a></li>
+            <li><a href="PRÁCTICA EJERCICIO E-R FUTBOL Y EMPRESA.pdf" target="_blank">Práctica 3: DIAGRAMA ENTIDAD RELACION EMPRESA Y EQUIPO DE FUTBOL </a></li> 
+            <li><a href="Ejercicio Bases de datos (ER) Seguros y hoteles.pdf" target="_blank">Práctica 4: DIAGRAMA ENTIDAD RELACION SEGUROS Y HOTELES</a></li>
+            <li><a href="Unitat 2 - Modelo E-R ReflexivaTernaria.pdf" target="_blank">Práctica 5: MODELO ENTIDAD RELACIÓN RELACIONES REFLEXIVAS-TERNARIAS</a></li>
+            <li><a href="EJERCICIOS NORMALIZACION.pdf" target="_blank">Práctica 6: EJERCICIOS DE NORMALIZACION</a></li>
+            <li><a href="NORMALIZACION EJEMPLO 2.pdf" target="_blank">Práctica 7: EJERCICIOS DE NORMALIZACION 2</a></li>
+        </ul>     
+
+        <h2>Recursos Adicionales</h2>    
+    <p>En clase, vimos un video sobre las fases del diseño de bases de datos. Aquí muestro el enlace: <a href="https://www.youtube.com/watch?v=HouTrlFc6Qw " target="_blank">Fases del diseño.</a></p>
+    <div style="text-align: left;"> 
+        <a href="#top" class="button">Volver al inicio</a>
+        <a href="https://repositoriodam.github.io/RepositorioDAM/" class="button">Página Principal</a>
+    </div>   
+    </section> 
+        
+    <footer>
+        <p>&copy; 2023 Desarrollo de Aplicaciones Multiplataforma - Carlos Pérez</p>
+    </footer>
+</body>
+</html>
