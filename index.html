@@ -165,26 +165,25 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-    </style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </style>   
     <script>
-        
-        $(document).ready(function() {
-  $('#javaFiles').change(function() {
-    var selectedFile = $(this).val();
-    if (selectedFile) {
-      $.ajax({
-        url: `https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/master/Programacion${selectedFile}`,
-        dataType: 'text',
-        success: function(data) {
-          $('#codeContainer').text(data);
-        }
-      });
-    } else {
-      $('#codeContainer').text('Selecciona tu código y obsérvalo aquí');
-    }
-  });
-});       
+       document.getElementById('javaFiles').addEventListener('change', function() {
+  var selectedFile = this.value;
+  var codeContainer = document.getElementById('codeContainer');
+
+  if (selectedFile) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', `https://raw.githubusercontent.com/username/repo/master/${selectedFile}`);
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        codeContainer.innerText = xhr.responseText;
+      }
+    };
+    xhr.send();
+  } else {
+    codeContainer.innerText = 'Selecciona tu código y obsérvalo aquí';
+  }
+});
     </script>
 </head>
 <body>
