@@ -165,26 +165,22 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-    </style>   
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-       document.getElementById('javaFiles').addEventListener('change', function() {
-  var selectedFile = this.value;
-  var codeContainer = document.getElementById('codeContainer');
-
-  if (selectedFile) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', `https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/${selectedFile}`);
-    xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-        codeContainer.innerText = xhr.responseText;
-      }
-    };
-    xhr.send();
-  } else {
-    codeContainer.innerText = 'Selecciona tu código y obsérvalo aquí';
-  }
+    $(document).ready(function() {
+      $('#javaFiles').change(function() {
+        var selectedFile = $(this).val();
+        if (selectedFile) {
+    $.get(`https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/${selectedFile}`, function(data) {
+        $('#codeContainer').text(data);
+      });
+    } else {
+      $('#codeContainer').text('Selecciona tu código y obsérvalo aquí');
+    }
+  });
 });
-    </script>
+</script>
 </head>
 <body>
     <header>
@@ -246,7 +242,12 @@
           <!-- Contenedor para el código -->
         <div id="codeContainer">Selecciona el código que quieras y obsérvalo aquí.</div> 
 
-        <p>Aquí voy a presentar algunas de mis prácticas y proyectos.</p>         
+        <p>Aquí voy a presentar algunas de mis prácticas y proyectos.</p>
+        <ul>
+          <li><a href="https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/volumenesfera.java" target="_blank">Archivo 1</a></li>
+          <li><a href="https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/SerieFibonacci.java" target="_blank">Archivo 2</a></li>
+          <!-- Añade más enlaces según sea necesario -->
+        </ul>
 
         <ul>
             <li><a href="Actividades_relaciones.pdf" target="_blank">Práctica 1: EJERCICIOS DE ENTIDAD RELACIÓN</a></li>
