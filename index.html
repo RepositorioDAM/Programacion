@@ -168,19 +168,20 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
       $('#javaFiles').change(function() {
         var selectedFile = $(this).val();
         if (selectedFile) {
-    $.get(`https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/${selectedFile}`, function(data) {
-        $('#codeContainer').text(data);
+            $.get(`https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/${selectedFile}`, function(data) {
+                $('#codeContainer').text(data);
+            });
+        } else {
+            $('#codeContainer').text('Selecciona tu código y obsérvalo aquí');
+        }
       });
-    } else {
-      $('#codeContainer').text('Selecciona tu código y obsérvalo aquí');
-    }
-  });
-});
+    });
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
     <header>
