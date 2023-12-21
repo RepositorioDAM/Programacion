@@ -166,23 +166,25 @@
             word-wrap: break-word;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        // Función para mostrar el código
-        function showJavaCode() {
-        var select = document.getElementById("javaFiles");
-        var selectedFile = select.options[select.selectedIndex].value;
-        var codeContainer = document.getElementById("codeContainer");
-
-        if (selectedFile) {
-            fetch(`https://raw.githubusercontent.com/CarlosPR33/RepositorioDAM/Programacion/master/${selectedFile}`)
-            .then(response => response.text())
-            .then(data => {
-                codeContainer.innerText = data;
-            });
-        } else {
-            codeContainer.innerText = 'Selecciona tu código y obsérvalo aquí';
+        
+        $(document).ready(function() {
+  $('#javaFiles').change(function() {
+    var selectedFile = $(this).val();
+    if (selectedFile) {
+      $.ajax({
+        url: `https://raw.githubusercontent.com/username/repo/master/${selectedFile}`,
+        dataType: 'text',
+        success: function(data) {
+          $('#codeContainer').text(data);
         }
-        }
+      });
+    } else {
+      $('#codeContainer').text('Selecciona tu código y obsérvalo aquí');
+    }
+  });
+});       
     </script>
 </head>
 <body>
