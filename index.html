@@ -179,12 +179,10 @@
         $.ajax({
             url: url + filename,
             method: 'GET',
+            headers: {"Accept": "application/vnd.github.VERSION.raw"},
             success: function(data) {
-                // Decodificar el contenido del archivo
-                var content = atob(data.content);
-
                 // Mostrar el contenido del archivo en el contenedor
-                $("#codeContainer").text(content);
+                $("#codeContainer").text(data);
             }
         });
     }
