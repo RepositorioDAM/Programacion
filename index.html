@@ -168,8 +168,8 @@
         }
     </style>    
     <script>
-     // URL de la API de GitHub
-    var url = "https://api.github.com/repos/CarlosPR33/RepositorioDAM/Programacion/contents/src/archivo.java";
+      // URL de la API de GitHub
+    var url = "https://api.github.com/repos/CarlosPR33/RepositorioDAM/Programacion/contents/src/";
 
     // Función para cargar los archivos .java desde GitHub
     function loadJavaFiles() {
@@ -184,7 +184,7 @@
           var content = atob(data.content);
 
           // Mostrar el contenido del archivo en el contenedor
-          document.getElementById("container").textContent = content;
+          document.getElementById("codeContainer").textContent = content;
         });
     }
 
