@@ -166,30 +166,31 @@
             white-space: pre-wrap;
             word-wrap: break-word;
         }
-    </style>    
+    </style> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
       // URL de la API de GitHub
     var url = "https://api.github.com/repos/CarlosPR33/RepositorioDAM/Programacion/contents/src/";
 
-    // Función para cargar los archivos .java desde GitHub
     function loadJavaFiles() {
-      // Obtener el nombre del archivo seleccionado por el usuario
-      var filename = document.querySelector("select").value;
+        // Obtener el nombre del archivo seleccionado por el usuario
+        var filename = $("#javaFiles").val();
 
-      // Hacer una solicitud GET a la API de GitHub
-      fetch(url + filename)
-        .then(response => response.json())
-        .then(data => {
-          // Decodificar el contenido del archivo
-          var content = atob(data.content);
+        $.ajax({
+            url: url + filename,
+            method: 'GET',
+            success: function(data) {
+                // Decodificar el contenido del archivo
+                var content = atob(data.content);
 
-          // Mostrar el contenido del archivo en el contenedor
-          document.getElementById("codeContainer").textContent = content;
+                // Mostrar el contenido del archivo en el contenedor
+                $("#codeContainer").text(content);
+            }
         });
     }
 
     // Llamar a la función loadJavaFiles cuando se seleccione un archivo
-    document.querySelector("select").addEventListener("change", loadJavaFiles);
+    $("#javaFiles").change(loadJavaFiles);
     </script>
 </head>
 <body>
