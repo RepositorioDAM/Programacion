@@ -167,29 +167,7 @@
             word-wrap: break-word;
         }
     </style> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-      // URL de la API de GitHub
-    var url = "https://api.github.com/repos/CarlosPR33/RepositorioDAM/Programacion/contents/src/";
-
-    function loadJavaFiles() {
-        // Obtener el nombre del archivo seleccionado por el usuario
-        var filename = $("#javaFiles").val();
-
-        $.ajax({
-            url: url + filename,
-            method: 'GET',
-            headers: {"Accept": "application/vnd.github.VERSION.raw"},
-            success: function(data) {
-                // Mostrar el contenido del archivo en el contenedor
-                $("#codeContainer").text(data);
-            }
-        });
-    }
-
-    // Llamar a la función loadJavaFiles cuando se seleccione un archivo
-    $("#javaFiles").change(loadJavaFiles);
-    </script>
+    
 </head>
 <body>
     <header>
@@ -219,55 +197,22 @@
             <li>Arrays Multidimensionales (Matrices)</li> 
         </ul>
         <br>
-        <h2 id="practicas">Mis Prácticas</h2>
-        <p>Aquí voy a presentar algunas de mis prácticas Java para que podais ver el código.</p>
-        <p>Seleccionalo en la lista:</p>
+        <h2 id="practicas">Mis Prácticas</h2>         
 
-        <select id="javaFiles" onchange="loadJavaFiles()">
-            <option value="">Selecciona una opción</option>
-            <option value="volumenesfera.java">Volumen de la esfera</option>
-            <option value="SerieFibonacci.java">Serie de Fibonacci</option>
-            <option value="Expresions6.java">Expresiones</option>
-            <option value="Exercici15Bucles.java">Ejercicio de Bucles</option>
-            <option value="Exercici16Bucles.java">Ejercicio de Bucles 2</option>
-            <option value="Exercici17Bucles.java">Ejercicio de Bucles 3</option>
-            <option value="Expresions17Condi.java">Ejercicio de Condicionales</option>
-            <option value="Expresions18Condi.java">Ejercicio de Condicionales 2</option>            
-            <option value="Menu.java">Proyecto Menu de opciones</option>
-            <option value="JuegoStarWars.java">Juego Conversacional STAR WARS</option>
-            <option value="Arrays15.java">Ejercicio de Arrays</option>
-            <option value="Arrays16">Ejercicio de Arrays 2</option>
-            <option value="Arrays17.java">Ejercicio de Arrays 3</option>
-            <option value="EjerciciosString4.java">Ejercicio de String</option>
-            <option value="CifradoCesar3.java">Cifrado Cesar</option>
-            <option value="Matrices4.java">Ejercicios de Matrices</option>
-            <option value="Matrices5.java">Ejercicio de Matrices 2</option>
-            <option value="MatrizcuadradaEntrega.java">Matriz Cuadrada</option>
-            <option value="Multidimensional.java">Array Multidimensional</option>         
-            
-           
-            <!-- Añade más opciones según sea necesario -->
-        </select>
-          
-          <!-- Contenedor para el código -->
-        <div id="codeContainer">Selecciona el código que quieras y obsérvalo aquí.</div> 
-         <!-- Botón para limpiar el contenedor -->
-        <button id="button" class="button">Limpiar</button>
-
-        <p>Aquí voy a presentar algunas de mis prácticas y proyectos.</p>       
+        <p>Aquí voy a presentar algunas de mis prácticas,proyectos y temarios.</p>       
 
         <ul>
-            <li><a href="Actividades_relaciones.pdf" target="_blank">Práctica 1: EJERCICIOS DE ENTIDAD RELACIÓN</a></li>
-            <li><a href="Ejercicios ER REPASO.pdf" target="_blank">Práctica 2: EJERCICIOS ENTIDAD RELACION 2</a></li>
-            <li><a href="PRÁCTICA EJERCICIO E-R FUTBOL Y EMPRESA.pdf" target="_blank">Práctica 3: DIAGRAMA ENTIDAD RELACION EMPRESA Y EQUIPO DE FUTBOL </a></li> 
-            <li><a href="Ejercicio Bases de datos (ER) Seguros y hoteles.pdf" target="_blank">Práctica 4: DIAGRAMA ENTIDAD RELACION SEGUROS Y HOTELES</a></li>
-            <li><a href="Unitat 2 - Modelo E-R ReflexivaTernaria.pdf" target="_blank">Práctica 5: MODELO ENTIDAD RELACIÓN RELACIONES REFLEXIVAS-TERNARIAS</a></li>
-            <li><a href="EJERCICIOS NORMALIZACION.pdf" target="_blank">Práctica 6: EJERCICIOS DE NORMALIZACION</a></li>
-            <li><a href="NORMALIZACION EJEMPLO 2.pdf" target="_blank">Práctica 7: EJERCICIOS DE NORMALIZACION 2</a></li>
+            <li><a href="Proyecto Star Wars.pdf" target="_blank">Proyecto Star Wars</a></li>
+            <li><a href="Practica Programación Numeros Aleatorios.pdf" target="_blank">Práctica Programación Numeros Aleatorios </a></li>
+            <li><a href="UD1-2_Diagramas_de_Flujo.pdf" target="_blank">Temario Sobre diagramas de flujo </a></li> 
+            <li><a href="UD1. Fonaments de la programació.pdf" target="_blank">Temario sobre Fundamentos de la programación</a></li>
+            <li><a href="UD2. Casting i MathRandom (V).pdf" target="_blank">Temario sobre Casting y Funcion MATH RANDOM</a></li>
+            <li><a href="UD2. Condicionals i Bucles (III).pdf" target="_blank">Temario sobre Condicionales y Bucles</a></li>            
         </ul>     
 
         <h2>Recursos Adicionales</h2>    
-    <p>En clase, vimos un video sobre las fases del diseño de bases de datos. Aquí muestro el enlace: <a href="https://www.youtube.com/watch?v=HouTrlFc6Qw " target="_blank">Fases del diseño.</a></p>
+    <p>En clase, vimos un video sobre arrays. Aquí muestro el enlace: <a href="https://www.youtube.com/watch?v=UID_EKKfpcE&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=25" target="_blank">Fases del diseño.</a></p>
+    <p>Mas enlaces como: <a href="https://www.youtube.com/watch?v=_tUncS0AsNE&list=PLU8oAlHdN5BktAXdEVCLUYzvDyqRQJ2lk&index=27" target="_blank"> </a></p>
     <div style="text-align: left;"> 
         <a href="#top" class="button">Volver al inicio</a>
         <a href="https://repositoriodam.github.io/RepositorioDAM/" class="button">Página Principal</a>
